@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Chat App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Login Modal -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Welcome to ChatApp</h2>
+                    <p>Enter your username to start chatting</p>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="usernameInput" placeholder="Enter your username" maxlength="20">
+                    <button id="joinBtn">Join Chat</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Chat Interface -->
+        <div class="chat-container">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h2><i class="fas fa-comments"></i> ChatApp</h2>
+                    <div class="user-info">
+                        <span id="currentUser"></span>
+                        <i class="fas fa-circle online-indicator"></i>
+                    </div>
+                </div>
+                
+                <div class="online-users">
+                    <h3>Online Users (<span id="userCount">0</span>)</h3>
+                    <div id="usersList" class="users-list">
+                        <!-- Users will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Chat Area -->
+            <div class="main-chat">
+                <div class="chat-header">
+                    <h3>Global Chat</h3>
+                    <div class="chat-info">
+                        <span id="typingIndicator"></span>
+                    </div>
+                </div>
+
+                <div class="messages-container">
+                    <div id="messages" class="messages">
+                        <!-- Messages will be populated here -->
+                    </div>
+                </div>
+
+                <div class="message-input-container">
+                    <div class="input-wrapper">
+                        <input type="text" id="messageInput" placeholder="Type your message..." maxlength="500">
+                        <button id="sendBtn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
